@@ -7,7 +7,6 @@ This plugin embeds inline PDFs in a GitBook.
 #### Copy Assets
 The plugin will copy all `.pdf` files in `./assets/` to the output directory (at the time of writing, Gitbook doesn't do this natively).
 
-
 #### PDF Block
 
 This plugin exposes a `{% pdf }` block to embed a pdf into a webpage.
@@ -25,24 +24,25 @@ This plugin exposes a `{% pdf }` block to embed a pdf into a webpage.
 2. Embed a PDF using the `pdf` block:
 
 ```
-{% pdf src="./assets/example.pdf", width="100%", height="850" %}{% endpdf %}
+{% pdf src="/assets/example.pdf", width="100%", height="850" %}{% endpdf %}
 ```
 
 This would produce the following HTML
 
 ```
 <div class="pdf">
-    <div class="pdf__link"><a target="_blank" href="assets/example.pdf">View PDF</a></div>
-    <object data="./assets/example.pdf" width="100%" height="850" type="application/pdf" internalinstanceid="176" title="">
-        <embed src="./assets/example.pdf">
+    <div class="pdf__link">
+    	<a target="_blank" href="/assets/example.pdf">View PDF</a>
+    </div>
+    <object data="/assets/example.pdf" width="100%" height="850" type="application/pdf">
+        <embed src="/assets/example.pdf">
             <p>
                 This browser does not support PDFs. <br>
-                Please download the PDF to view it: <a target="_blank" href="assets/example.pdf">Download PDF</a>.
+                Please download the PDF to view it: <a target="_blank" href="/assets/example.pdf">Download PDF</a>.
             </p>
     </object>
 </div>
 ```
-
 
 ## Options
 
