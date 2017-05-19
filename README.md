@@ -13,7 +13,7 @@ This plugin exposes a `{% pdf }` block to embed a pdf into a webpage.
 
 ## How to use it
 
-1. Configure the plugin in your `book.json`:
+1) Configure the plugin in your `book.json`:
 
 ```
 {
@@ -21,7 +21,7 @@ This plugin exposes a `{% pdf }` block to embed a pdf into a webpage.
 }
 ```
 
-2. Embed a PDF using the `pdf` block:
+2) Embed a PDF using the `pdf` block:
 
 ```
 {% pdf src="/assets/example.pdf", width="100%", height="850" %}{% endpdf %}
@@ -49,6 +49,6 @@ This would produce the following HTML
 The `pdf` block takes the following attributes
 
 * `src` : (required) the url to the PDF to embed
-* `width` : the width of the container surrounding the PDF
-* `height` : the height of the container surrounding the PDF
+* `width` : the width of the object containing the PDF
+* `height` : the height of the object containing the PDF
 * `link` : (default=true) shows a link to view the PDF in a new browser window/tab
