@@ -48,7 +48,7 @@ This would produce the following HTML
 
 The `pdf` block takes the following attributes
 
-* `src` : the url to the PDF to embed (required)
+* `src` : (required) the url to the PDF to embed
 * `width` : the width of the container surrounding the PDF
-* `height` : the width of the container surrounding the PDF
-* `link` : shows a link to view the PDF in a new browser window/tab (default=true)
+* `height` : the height of the container surrounding the PDF
+* `link` : (default=true) shows a link to view the PDF in a new browser window/tab
