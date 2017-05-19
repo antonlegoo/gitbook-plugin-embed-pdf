@@ -1,0 +1,21 @@
+{
+  "name": "gitbook-plugin-embed-pdf",
+  "description": "A plugin for embedding inline PDFs in GitBook",
+  "main": "index.js",
+  "version": "1.0.0",
+  "engines": {
+    "gitbook": "*"
+  },
+  "homepage": "https://github.com/antonlegoo/gitbook-plugin-embed-pdf",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antonlegoo/gitbook-plugin-embed-pdf.git"
+  },
+  "license": "Apache 2",
+  "bugs": {
+    "url": "https://github.com/antonlegoo/gitbook-plugin-embed-pdf/issues"
+  },
+  "dependencies": {
+    "copy": "^0.3.0"
+  }
+}
