@@ -1,40 +1,54 @@
-GitBook Sample Plugin
-==============
+# Embed inline PDFs in Gitbook
 
-This is a model for GitBook plugins.
+This plugin embeds inline PDFs in a GitBook.
 
-## How GitBook plugin works?
+## Features
 
-A plugin for GitBook is a node package that can be published on [NPM](http://www.npmjs.org). It has to follow the name convention: `gitbook-plugin-*name*`.
+#### Copy Assets
+The plugin will copy all `.pdf` files in `./assets/` to the output directory (at the time of writing, Gitbook doesn't do this natively).
 
-### package.json
 
-#### name
+#### PDF Block
 
-The package name should begin with ```gitbook-plugin-```.
+This plugin exposes a `{% pdf }` block to embed a pdf into a webpage.
 
-Examples: `gitbook-plugin-mixpanel`, `gitbook-plugin-googleanalytics`.
+## How to use it
 
-#### engine
-
-The package.json should contain a `engine` field using [the standard norm](https://www.npmjs.org/doc/json.html#engines).
+1. Configure the plugin in your `book.json`:
 
 ```
-"engines": {
-    "gitbook": "*"
+{
+    "plugins": ["embed-pdf"]
 }
 ```
 
-For example if you want your plugin to supports only GitBook version supperior to 0.3.1:
+2. Embed a PDF using the `pdf` block:
 
 ```
-"engines": {
-    "gitbook": ">=0.3.1"
-}
+{% pdf src="./assets/example.pdf", width="100%", height="850" %}{% endpdf %}
 ```
 
-### entry point
+This would produce the following HTML
 
-The plugin entry point should return an object with some metadata.
+```
+<div class="pdf">
+    <div class="pdf__link"><a target="_blank" href="assets/example.pdf">View PDF</a></div>
+    <object data="./assets/example.pdf" width="100%" height="850" type="application/pdf" internalinstanceid="176" title="">
+        <embed src="./assets/example.pdf">
+            <p>
+                This browser does not support PDFs. <br>
+                Please download the PDF to view it: <a target="_blank" href="assets/example.pdf">Download PDF</a>.
+            </p>
+    </object>
+</div>
+```
 
 
+## Options
+
+The `pdf` block takes the following attributes
+
+* `src` : the url to the PDF to embed (required)
+* `width` : the width of the container surrounding the PDF
+* `height` : the width of the container surrounding the PDF
+* `link` : shows a link to view the PDF in a new browser window/tab (default=true)
